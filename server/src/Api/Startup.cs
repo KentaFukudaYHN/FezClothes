@@ -7,6 +7,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 using ApplicationCore.Interfaces;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.CookiePolicy;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace Api
 {
@@ -28,6 +31,17 @@ namespace Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Api", Version = "v1" });
             });
+
+            //クッキー認証の設定
+            services.Configure<CookiePolicyOptions>(o =>
+            {
+                o.Secure = CookieSecurePolicy.Always;
+                o.HttpOnly = HttpOnlyPolicy.Always; //jsから触れなくする
+            });
+
+            services
+                .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie();
 
             //DIコンテナにDbContext登録
             string connectionString = Configuration.GetConnectionString("FezClothesDatabase");
@@ -53,6 +67,8 @@ namespace Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseHttpsRedirection();
 
             app.UseAuthorization();
 
