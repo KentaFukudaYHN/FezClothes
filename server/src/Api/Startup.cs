@@ -10,6 +10,9 @@ using ApplicationCore.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using ApplicationCore.Services;
+using Api.Interfaces;
+using Api.ViewServices;
 
 namespace Api
 {
@@ -51,7 +54,13 @@ namespace Api
             });
 
             //DIƒRƒ“ƒeƒi‚ÉEfRepository‚Ì“o˜^
-            services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));     
+            services.AddScoped(typeof(IAsyncRepository<>), typeof(EfRepository<>));
+
+            //DIƒRƒ“ƒeƒi‚ÉService‚Ì“o˜^
+            services.AddScoped<ILoginService, LoginService>();
+
+            //DIƒRƒ“ƒeƒi‚ÉViewService‚Ì“o˜^
+            services.AddScoped<ILoginViewService, LoginViewService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

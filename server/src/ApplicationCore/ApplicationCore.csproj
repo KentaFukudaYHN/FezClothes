@@ -6,9 +6,12 @@
 
   <ItemGroup>
     <Folder Include="ReqRes\" />
-    <Folder Include="Services\" />
-    <Folder Include="Specifications\" />
     <Folder Include="Utilitys\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
   </ItemGroup>
 
 </Project>

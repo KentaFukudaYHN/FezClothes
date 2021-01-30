@@ -19,6 +19,8 @@ namespace ApplicationCore.Interfaces
         /// </summary>
         List<Expression<Func<T, object>>> Includes { get; }
 
+        List<string> IncludeString { get; }
+
         /// <summary>
         /// 昇順条件
         /// </summary>

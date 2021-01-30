@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace ApplicationCore.Entitys
+namespace Api.ViewReqRes
 {
     /// <summary>
-    /// アカウント情報
+    /// ログイン要求クラス
     /// </summary>
-    public class Account: BaseEntity
+    public class LoginViewReq
     {
         /// <summary>
         /// 名前
@@ -18,17 +21,11 @@ namespace ApplicationCore.Entitys
         /// メールアドレス
         /// </summary>
         [Required]
-        public string MailAddress { get; set; }
-
-        /// <summary>
-        /// パスワード
-        /// </summary>
-        [Required]
         public string Password { get; set; }
 
         /// <summary>
-        /// 登録日時
+        /// コンストラクタ
         /// </summary>
-        public DateTime RegistDateTime { get; set; }
+        public LoginViewReq() { }
     }
 }
