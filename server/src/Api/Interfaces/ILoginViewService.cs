@@ -1,4 +1,5 @@
 ﻿using Api.ViewReqRes;
+using ApplicationCore.Interfaces;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,6 @@ namespace Api.Interfaces
         /// <param name="name"></param>
         /// <param name="ps"></param>
         /// <returns></returns>
-        Task<bool> Login(LoginViewReq req, HttpContext context);
+        Task<bool> Login(LoginViewReq req, IHttpContext context);
     }
 }

@@ -35,7 +35,7 @@ namespace ApplicationCore.Services
         /// <param name="ps"></param>
         /// <param name="context"></param>
         /// <returns></returns>
-        public async Task<bool> Login(string name, string ps, HttpContext context)
+        public async Task<bool> Login(string name, string ps, IHttpContext context)
         {
             //アカウント情報を検索
             var accountSpec = new AccountSpecification(name, ps);

@@ -12,6 +12,6 @@ namespace ApplicationCore.Interfaces
     /// </summary>
     public interface ILoginService
     {
-        Task<bool> Login(string name, string ps, HttpContext context);
+        Task<bool> Login(string name, string ps, IHttpContext context);
     }
 }

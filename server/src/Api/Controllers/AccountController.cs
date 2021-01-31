@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ApplicationCore.Context;
 
 namespace Api.Controllers
 {
@@ -32,7 +33,7 @@ namespace Api.Controllers
         /// <returns></returns>
         public async Task<IActionResult> Login([FromBody] LoginViewReq req)
         {
-            if(ModelState.IsValid && await _loginViewService.Login(req, HttpContext))
+            if(ModelState.IsValid && await _loginViewService.Login(req, new FezHttpContext(HttpContext)))
             {
                 return Ok();
             }

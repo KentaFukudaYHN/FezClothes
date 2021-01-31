@@ -28,7 +28,7 @@ namespace Api.ViewServices
         /// <param name="ps"></param>
         /// <param name="context"></param>
         /// <returns></returns>
-        public Task<bool> Login(LoginViewReq req, HttpContext context)
+        public Task<bool> Login(LoginViewReq req, IHttpContext context)
         {
             return _loginService.Login(req.Name, req.Password, context);
         }
