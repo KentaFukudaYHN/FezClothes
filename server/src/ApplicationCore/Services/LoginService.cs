@@ -37,6 +37,11 @@ namespace ApplicationCore.Services
         /// <returns></returns>
         public async Task<bool> Login(string name, string ps, IHttpContext context)
         {
+            if(string.IsNullOrEmpty(name) || string.IsNullOrEmpty(ps))
+            {
+                throw new ArgumentException();
+            }
+
             //アカウント情報を検索
             var accountSpec = new AccountSpecification(name, ps);
             var account = (await _accountRepository.ListAsync(accountSpec)).FirstOrDefault();
