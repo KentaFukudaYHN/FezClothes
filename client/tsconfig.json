@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    //ブラウザでデバックできるように ※元のコードとコンパイル後のコードの紐づけ
+    "sourceMap": true,
+    //コンパイル結果はes5
+    "target": "es5",
+    //モジュールの読み込み方法はesmodule
+    "module": "ES2015",
+    //import Vue From 'vue'の書き方を許容する ※import * as 'Vue' → import Vue From 'vue' 
+    "allowSyntheticDefaultImports": true,
+    //デコレーターを有効
+    "experimentalDecorators": true
+  }
+}
