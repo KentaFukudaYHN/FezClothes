@@ -18,6 +18,12 @@ module.exports = {
                 test: /\.ts$/,
                 //TypeScriptをコンパイルする
                 use: "ts-loader"
+            },
+            {
+                //拡張子.vueの場合
+                test: /\.vue$/,
+                //Vueをコンパイルする
+                use: ['vue-loader']
             }
         ]
     },
