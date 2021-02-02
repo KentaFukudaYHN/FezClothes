@@ -8,6 +8,8 @@
     "module": "ES2015",
     //import Vue From 'vue'の書き方を許容する ※import * as 'Vue' → import Vue From 'vue' 
     "allowSyntheticDefaultImports": true,
+    //モジュールの解決方法
+    "moduleResolution": "node",
     //デコレーターを有効
     "experimentalDecorators": true
   }
