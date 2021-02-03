@@ -11,6 +11,9 @@
     //モジュールの解決方法
     "moduleResolution": "node",
     //デコレーターを有効
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    },
   }
 }
