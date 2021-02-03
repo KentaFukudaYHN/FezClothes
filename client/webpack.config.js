@@ -1,3 +1,5 @@
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+
 module.exports = {
     //モード値をproductionに設定すると最適化される
     //developmentに設定されるとソースマップ有効でJSファイルが出力される
@@ -7,7 +9,7 @@ module.exports = {
     //出力先
     output: {
         //出力するディレクトリ
-        path: "${__dirname}/dist",
+        path: `${__dirname}/dist`,
         //出力するファイル名
         filename: "main.js"
     },
@@ -23,7 +25,7 @@ module.exports = {
                 //拡張子.vueの場合
                 test: /\.vue$/,
                 //Vueをコンパイルする
-                use: ['vue-loader']
+                use: 'vue-loader'
             }
         ]
     },
@@ -33,6 +35,8 @@ module.exports = {
         alias:{
             vue: "vue/dist/vue.js"
         }
-    }
-
+    },
+    plugins: [
+        new VueLoaderPlugin(),
+    ]
 }
