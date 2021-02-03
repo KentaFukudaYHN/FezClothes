@@ -1,12 +1,11 @@
 <template>
-    <p>Hello</p>
+    <p>hello</p>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue, Emit, Watch } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 
-@Component({})
+@Component
 export default class App extends Vue{
-    
 }
 </script>
