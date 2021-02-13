@@ -12,6 +12,7 @@
     "moduleResolution": "node",
     //デコレーターを有効
     "experimentalDecorators": true,
+    "baseUrl": "./",
     "paths": {
       "@/*": ["./src/*"]
     },

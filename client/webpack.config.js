@@ -1,4 +1,6 @@
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const path = require('path');
 
 module.exports = {
     //モード値をproductionに設定すると最適化される
@@ -31,12 +33,20 @@ module.exports = {
     },
     resolve:{
         //import文で.ts書かなくていいようにする
-        extensions:[".ts"],
-        alias:{
-            vue: "vue/dist/vue.js"
-        }
+        extensions:[".ts", ".js"],
+        plugins:[
+            //tsconfigのPathをwebpackで有効化
+            new TsconfigPathsPlugin({
+                configFile: './tsconfig.json'
+            })
+        ]
     },
     plugins: [
-        new VueLoaderPlugin(),
-    ]
+        new VueLoaderPlugin()
+    ],
+    devServer: {
+        open: true,
+        contentBase: path.resolve(__dirname, "dist"),
+        port:8082
+    }
 }
